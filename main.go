@@ -1,50 +1,26 @@
 package main
 
-import "fmt"
-
 func main() {
-	//variables
-	// var keyword is used to declare a variable
-	// name of the variable is name and the type of the variable is string
-	var name string = "Julio Cesar"
-	city := "Mexico City" // short variable declaration, type is inferred
 
-	fmt.Printf("Hello, my name is %s and I live in %s.\n", name, city)
-	// A way to declare multiple variables at once is to use a var block
-	var (
-		age       int     = 22
-		height    float64 = 1.75
-		isStudent bool    = true
-	)
+	resultAdd := Add(2, 3)
+	println(resultAdd)
 
-	fmt.Printf("im %d, mi height is %f and is %t im student", age, height, isStudent)
+	resultSum, resultProduct := SumAndProduct(4, 5)
+	println(resultSum)
+	println(resultProduct)
 
-	// Arguemnt formats
-	// %d - integer
-	// %f - float
-	// %s - string
-	// %t - boolean
-
-	// Default values
-	var defaultInt int
-	var defaultFloat float64
-	var defaultString string
-	var defaultBool bool
-
-	fmt.Printf("Default values: int=%d, float=%f, string='%s', bool=%t\n", defaultInt, defaultFloat, defaultString, defaultBool)
-
-	//constants
-
-	const pi = 3.14
-	const (
-		Monday    = 1
-		Tuesday   = 2
-		Wednesday = 3
-		Thursday  = 4
-		Friday    = 5
-	)
-
-	// Constant can be untyped or typed. Untyped constants are more flexible and can be used in different contexts, while typed constants have a specific type and cannot be used in contexts that require a different type.
-
-	// Also, the compiler doesnt bother when a constant is declared but not used, but it will throw an error if a variable is declared but not used.
 }
+
+// To declare a function simply use the func keyword followed by the function name, parameters, and return type. The function body is enclosed in curly braces.
+// Type can be omitted if it can be inferred from the context. For example, in the SumAndProduct function, the types of a and b are both int, so we can omit the type for b.
+
+func Add(a int, b int) int {
+	return a + b
+}
+
+// The SumAndProduct function takes two integers as input and returns their sum and product as two separate return values. The return types are specified in parentheses after the parameter list.
+func SumAndProduct(a, b int) (int, int) {
+	return a + b, a * b
+}
+
+// Also the capitalize name of the function indicates that it is exported and can be accessed from other packages. If the function name starts with a lowercase letter, it is unexported and can only be accessed within the same package.
