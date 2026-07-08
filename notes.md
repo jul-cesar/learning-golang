@@ -14,3 +14,7 @@ to run a golang file we use the command go run and the name of the file, in this
 
 
 if we want it to be compile it to binary we use go build -o main.go
+
+SLICES
+
+Slices are dynamic arrays, is defined with a certain size under the hood, when we increase the size the compiler double it 

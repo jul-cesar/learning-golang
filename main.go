@@ -6,19 +6,30 @@ import (
 
 func main() {
 
-	// Arrays 
-	// the firt parameter is the length of the array and the second parameter is the type of the array
-	numbers := [5]int{1, 2, 3, 4, 5}
-	// to print an array we can use the %v verb in fmt.Printf
-	fmt.Printf("This is the array %v\n", numbers)
-	// with len() function we can get the length of an array
-	fmt.Println("The array length is", len(numbers))
+	// slices
 
-	// multidimensional arrays
-	// the first parameter is the length of the array and the second parameter is the length of the inner array and the third parameter is the type of the array+
-	multi := [2][3]int{
-		{1, 2, 3},
-		{4, 5, 6},
+	numbers := []int{1, 2, 3, 4, 5}
+	// this is how you can create a slice from an array or another slice
+	allNumbers := numbers[:]
+	fmt.Printf("All numbers: %v\n", allNumbers)
+	// this takes the first three numbers from the slice
+	firstThreeNumbers := numbers[0:3]
+	fmt.Printf("First three numbers: %v\n", firstThreeNumbers)
+
+	// this is how you can create new slices
+	fruits := []string{
+		"apple",
+		"banana",
+		"cherry",
 	}
-	fmt.Printf("This is the multidimensional array %v\n", multi)
+	fmt.Printf("Fruits: %v\n", fruits)
+
+	// we cand append to a slice using the built-in append function
+	fruits = append(fruits, "date")
+	fmt.Printf("Fruits after appending: %v\n", fruits)
+
+	for i, v := range fruits {
+		fmt.Printf("Index: %d, Value: %s\n", i, v)
+	}
+
 }
